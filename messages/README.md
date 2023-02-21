@@ -45,5 +45,6 @@ A typical pattern is for a dialect to include [common.xml](../messages/common.md
 
 The dialect definitions are:
 
+* [all.xml](all.md)
 
 

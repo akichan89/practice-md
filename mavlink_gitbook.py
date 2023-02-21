@@ -17,10 +17,23 @@ from bs4 import BeautifulSoup as bs
 import re
 import os # for walk
 from html2markdown import convert_html
+from git_pull import git_pull
 
+git_pull()
+
+# clean_up = 'rm common.html common.md generic.md generic.pdf all.md all.pdf'
+# clean_up_html = 'cd messages/_html/ rm all.html common.html lmpt_generic_component_controls.html'
+
+# os.system(clean_up)
+# os.system(clean_up_html)
+
+# cmd = 'git pull origin'
+# os.system(cmd)
+# print(cmd)
 
 xsl_file_name = "mavlink_to_html_table_gitbook.xsl"
 xml_message_definitions_dir_name = "../message_definitions/v1.0/"
+
 
 output_dir = "./messages/"
 output_dir_html=output_dir+"_html/"
@@ -321,7 +334,11 @@ with open(index_file_name, 'w') as content_file:
     content_file.write(index_text)
 
 print("COMPLETED")
-convert_html()
+convert_html('messages/_html/all.html', 'all.md')
+convert_html('messages/_html/common.html', 'common.md')
+convert_html('messages/_html/test.html', 'test.md')
+convert_html('messages/_html/main.html', 'main.md')
+# convert_html('messages/_html/lmpt_generic_component_controls.html', 'lmpt_generic_component_controls.md')
 
 
 
